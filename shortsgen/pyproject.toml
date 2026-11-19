@@ -1,0 +1,42 @@
+[project]
+name = "shortsgen"
+version = "0.1.0"
+description = "Tech docs -> Korean YouTube Shorts generator (local, single user)"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn>=0.30",
+  "python-multipart>=0.0.9",
+  "httpx>=0.27",
+  "beautifulsoup4>=4.12",
+  "markdownify>=0.13",
+  "markdown-it-py>=3.0",
+  "pydantic>=2.8",
+  "anthropic>=0.40",
+  "openai>=1.50",
+  "pillow>=11.0",
+  "pygments>=2.18",
+  "fonttools>=4.54",
+  "numpy>=2.0",
+  "google-api-python-client>=2.140",
+  "google-auth-oauthlib>=1.2",
+  "python-dotenv>=1.0",
+]
+
+[project.scripts]
+shortsgen = "shortsgen.web.app:main"
+
+[dependency-groups]
+dev = ["pytest>=8.3"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/shortsgen"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["live: hits real paid APIs (opt-in)"]
+addopts = "-m 'not live'"

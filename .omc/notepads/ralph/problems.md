@@ -1,0 +1,3 @@
+﻿- 2026-11-19 docs-to-shorts: plugin cache 5.8.6 ships without bridge/cli.cjs and Node was absent, so OMC hooks/MCP never ran; used npm omc 5.8.4 CLI and bound architect approval via prd.js consumeStoryArchitectApproval manually.
+- 2026-11-19 docs-to-shorts: non-git workspace resolved OMC state to ~/.omc until a .omc-workspace marker was added; first baseline was written to the wrong root.
+- 2026-11-19 docs-to-shorts: first architect review REJECTED (project-id path traversal via %5C on Windows, stale upload_uri); fixed with regression tests, re-review APPROVED.

@@ -1,0 +1,20 @@
+"""Frame layout constants shared by rendering and validation."""
+
+WIDTH, HEIGHT = 1080, 1920
+SIDE = 40
+
+TITLE_FONT_SIZE = 60
+TITLE_TOP = 200
+TITLE_MAX_WIDTH = WIDTH - 2 * SIDE - 40
+TITLE_MAX_LINES = 3
+
+CODE_LEFT = SIDE
+CODE_TOP = 520
+
+SUB_FONT_SIZE = 56
+SUB_MAX_WIDTH = 960
+SUB_MAX_CHARS = 16
+SUB_MAX_LINES = 2
+SUB_BOTTOM = 1700
+
+DIM_ALPHA = int(255 * 0.55)

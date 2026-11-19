@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+shortsgen/projects/
+projects/
+.env
+client_secret*.json
+token*.json
+.omc/state/

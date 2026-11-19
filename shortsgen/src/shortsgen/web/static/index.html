@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>shortsgen — 문서로 쇼츠 만들기</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <aside id="sidebar">
+    <h1>shortsgen</h1>
+    <form id="new-form">
+      <label>기술 문서 URL
+        <input type="url" name="url" placeholder="https://docs.python.org/3/library/json.html">
+      </label>
+      <div class="or">또는</div>
+      <label>Markdown 파일
+        <input type="file" name="file" accept=".md,.markdown,.txt">
+      </label>
+      <button type="submit" class="primary">대본 만들기</button>
+    </form>
+    <h2>프로젝트</h2>
+    <ul id="project-list"></ul>
+  </aside>
+
+  <main id="app">
+    <div id="empty" class="empty">왼쪽에서 문서를 입력하면 Claude가 장면별 대본을 만듭니다.</div>
+    <section id="project" hidden>
+      <header class="bar">
+        <div>
+          <span id="state" class="badge"></span>
+          <span id="duration" class="meter"></span>
+          <span id="cost" class="meter"></span>
+        </div>
+        <div class="actions">
+          <button data-act="images">이미지 생성</button>
+          <button data-act="tts">음성 생성</button>
+          <button data-act="approve" class="primary">승인</button>
+          <button data-act="render">렌더링</button>
+          <button data-act="upload">YouTube 업로드 (비공개)</button>
+        </div>
+      </header>
+      <div id="message" class="message" hidden></div>
+      <ul id="issues" class="issues"></ul>
+      <div id="result" class="result" hidden></div>
+
+      <details open class="card">
+        <summary>메타데이터</summary>
+        <label>제목 <input id="meta-title" maxlength="100"></label>
+        <label>설명 <textarea id="meta-desc" rows="3"></textarea></label>
+        <label>해시태그 (공백 구분) <input id="meta-tags"></label>
+        <button id="meta-save">메타데이터 저장</button>
+      </details>
+
+      <div id="scenes"></div>
+    </section>
+  </main>
+
+  <template id="scene-tpl">
+    <article class="scene card">
+      <header>
+        <h3></h3>
+        <span class="flags"></span>
+      </header>
+      <div class="scene-grid">
+        <div class="thumb">
+          <img alt="배경 이미지">
+          <button data-sact="image">이미지 다시 생성</button>
+          <button data-sact="preview">미리보기</button>
+          <video controls hidden></video>
+        </div>
+        <div class="fields">
+          <label>화면 문구 <input class="on-screen"></label>
+          <div class="sentences"></div>
+          <button class="add-sentence" type="button">+ 문장</button>
+          <label>이미지 프롬프트 (영어) <input class="image-prompt"></label>
+          <fieldset class="code-ref">
+            <legend>코드 (원문 그대로 표시)</legend>
+            <select class="block"></select>
+            <label>시작 줄 <input type="number" class="start" min="1"></label>
+            <label>끝 줄 <input type="number" class="end" min="1"></label>
+            <pre class="code-view"></pre>
+          </fieldset>
+          <button class="save primary" type="button">장면 저장</button>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

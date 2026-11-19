@@ -1,0 +1,10 @@
+﻿[US-001..003] env (Py3.12.10, uv 0.13.9, ffmpeg 9.0.2), scaffold, models/storage/hashing, render core (code_card, layers, timeline, master audio, compose). 16 tests pass.
+- Learning: OMC state root needs C:\workspace\.omc-workspace marker (not a git repo at first).
+- Learning: omc must be invoked via cmd with registry PATH refresh (scratchpad omcv.ps1).
+- Deviation: plan's scene_frame/subtitle_card/highlight modules consolidated into render/layers.py; on-screen title font 60px (plan said 44px) for phone legibility.
+- Visual check: frame shows exact code, line highlight, Korean subtitle.
+[US-001..003] env (Py3.12.10, uv 0.13.9, ffmpeg 9.0.2), scaffold, models/storage/hashing, render core (code_card, layers, timeline, master audio, compose). 16 tests pass.
+- Learning: OMC state root needs C:\workspace\.omc-workspace marker (not a git repo at first).
+- Learning: omc must be invoked via cmd with registry PATH refresh (scratchpad omcv.ps1).
+- Deviation: plan's scene_frame/subtitle_card/highlight modules consolidated into render/layers.py; on-screen title font 60px (plan said 44px) for phone legibility.
+- Visual check: frame shows exact code, line highlight, Korean subtitle.
